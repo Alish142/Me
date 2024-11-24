@@ -3,6 +3,18 @@
       <h2>Clients</h2>
       <div id="clientList">
         <div *ngFor="let client of clients" class="client-card">
-         
-  
+            <h3>{{ client.name }} ({{ client.clientID }})</h3>
+          <p>Fitness Program: {{ client.fitnessProgram }}</p>
+          <p>VIP: {{ client.isVIP ? "Yes" : "No" }}</p>
+          <p>Contact: {{ client.contactInfo }}</p>
+          <p>DOB: {{ client.dob }}</p>
+          <p>Joined Date: {{ client.joinedDate }}</p>
+          <p>Ending Date: {{ client.endingDate }}</p>
+          <p>Special Health Notes: {{ client.specialHealthNotes }}</p>
+          <button (click)="deleteClient(client.clientID)">Delete</button>
+          <a [routerLink]="['/edit-client', client.clientID]" class="update-btn">Update</a>
+        </div>
+      </div>
+    </div>
+  </section>
   
