@@ -80,3 +80,20 @@ export class ClientDataService {
     this.clients = this.clients.filter(c => c.clientID !== clientID);
     this.clientsSubject.next(this.clients);
   }
+
+  getClientById(clientID: string): Client | undefined {
+    return this.clients.find(c => c.clientID === clientID);
+  }
+
+  searchClients(query: string): Client[] {
+    return this.clients.filter(c => 
+      c.name.toLowerCase().includes(query.toLowerCase()) ||
+      c.clientID.toLowerCase().includes(query.toLowerCase())
+    );
+  }
+
+  getVipClients(): Client[] {
+    return this.clients.filter(c => c.isVIP);
+  }
+}
+
