@@ -1,4 +1,3 @@
-
 .app-container {
     display: flex;
     flex-direction: column;
@@ -38,12 +37,7 @@
     background-color: #ddd;
   }
   
-  footer {
-    background-color: #3a713c;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-  }
+
   
   @media (max-width: 600px) {
     nav ul {
