@@ -32,3 +32,27 @@ constructor(
       specialHealthNotes: [''],
       isVIP: [false]
     });
+
+    ngOnInit() {
+    const clientID = this.route.snapshot.paramMap.get('id');
+    if (clientID) {
+      this.isEditMode = true;
+      const client = this.clientDataService.getClientById(clientID);
+      if (client) {
+        this.clientForm.patchValue(client);
+      }
+    }
+  }
+
+  onSubmit() {
+    if (this.clientForm.valid) {
+      const clientData: Client = this.clientForm.value;
+      if (this.isEditMode) {
+        this.clientDataService.updateClient(clientData);
+      } else {
+        this.clientDataService.addClient(clientData);
+      }
+      this.router.navigate(['/']);
+    }
+  }
+}
