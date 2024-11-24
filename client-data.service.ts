@@ -62,3 +62,21 @@ export class ClientDataService {
   getClients(): Observable<Client[]> {
     return this.clientsSubject.asObservable();
   }
+
+   addClient(client: Client): void {
+    this.clients.push(client);
+    this.clientsSubject.next(this.clients);
+  }
+
+  updateClient(updatedClient: Client): void {
+    const index = this.clients.findIndex(c => c.clientID === updatedClient.clientID);
+    if (index !== -1) {
+      this.clients[index] = updatedClient;
+      this.clientsSubject.next(this.clients);
+    }
+  }
+
+  deleteClient(clientID: string): void {
+    this.clients = this.clients.filter(c => c.clientID !== clientID);
+    this.clientsSubject.next(this.clients);
+  }
