@@ -1,0 +1,23 @@
+<div class="app-container">
+  <app-header></app-header>
+  
+  <nav>
+      <ul>
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+          <li><a routerLink="/add-client" routerLinkActive="active">Add Client</a></li>
+          <li><a routerLink="/search" routerLinkActive="active">Search Clients</a></li>
+          <li><a routerLink="/vip-clients" routerLinkActive="active">VIP Clients</a></li>
+          <li><a routerLink="/help" routerLinkActive="active">Help</a></li>
+          <li><a routerLink="/privacy-security" routerLinkActive="active">Privacy & Security</a></li>
+      </ul>
+  </nav>
+
+  <main>
+      <router-outlet></router-outlet>
+  </main>
+
+  <footer>
+      <p>&copy; 2024 Personal Trainer Client Management. All rights reserved.</p>
+  </footer>
+</div>
+
