@@ -1,1 +1,20 @@
+<section id="clientSearchContainer">
+    <div class="card">
+        <h2>Search Clients</h2>
+        <div class="search-form">
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Search by name or ID">
+            <button (click)="searchClients()">Search</button>
+        </div>
+        <div *ngIf="searchResults.length > 0" id="searchResults">
+            <h3>Search Results:</h3>
+            <div *ngFor="let client of searchResults" class="client-card">
+                <h4>{{ client.name }} ({{ client.clientID }})</h4>
+                <p>Fitness Program: {{ client.fitnessProgram }}</p>
+                <p>VIP: {{ client.isVIP ? "Yes" : "No" }}</p>
+                <p>Contact: {{ client.contactInfo }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
