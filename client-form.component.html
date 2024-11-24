@@ -1,0 +1,52 @@
+<section id="clientFormContainer">
+    <div class="card">
+        <h2>{{ isEditMode ? 'Update Client' : 'Add Client' }}</h2>
+        <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+            <label for="clientID">Client ID:</label>
+            <input type="text" id="clientID" formControlName="clientID" required>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" formControlName="name" required>
+
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" formControlName="dob" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" formControlName="gender" required>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Unspecified">Unspecified</option>
+            </select>
+
+            <label for="fitnessProgram">Fitness Program:</label>
+            <select id="fitnessProgram" formControlName="fitnessProgram" required>
+                <option value="fat loss">Fat loss</option>
+                <option value="senior fitness">Senior Fitness</option>
+                <option value="muscle gain">Muscle Gain</option>
+                <option value="pre/postnatal fitness">Pre/Postnatal Fitness</option>
+                <option value="contest preparation">Contest Preparation</option>
+                <option value="overall fitness">Overall Fitness</option>
+            </select>
+
+            <label for="contactInfo">Contact Info:</label>
+            <input type="text" id="contactInfo" formControlName="contactInfo" required>
+
+            <label for="joinedDate">Joined Date:</label>
+            <input type="date" id="joinedDate" formControlName="joinedDate" required>
+
+            <label for="endingDate">Ending Date:</label>
+            <input type="date" id="endingDate" formControlName="endingDate" required>
+
+            <label for="specialHealthNotes">Special Health Notes:</label>
+            <textarea id="specialHealthNotes" formControlName="specialHealthNotes"></textarea>
+
+            <label>
+                VIP Client
+                <input type="checkbox" id="isVIP" formControlName="isVIP">
+            </label>
+
+            <button type="submit" [disabled]="!clientForm.valid">{{ isEditMode ? 'Update' : 'Add' }} Client</button>
+        </form>
+    </div>
+</section>
+
