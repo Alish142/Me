@@ -2,6 +2,12 @@
     <div class="card">
       <h2>VIP Clients</h2>
       <div id="vipClientList">
+          div *ngFor="let client of vipClients" class="client-card">
+          <h3>{{ client.name }} ({{ client.clientID }})</h3>
+          <p>Fitness Program: {{ client.fitnessProgram }}</p>
+          <p>Contact: {{ client.contactInfo }}</p>
+          <p>Joined Date: {{ client.joinedDate }}</p>
+        </div>
         
 
    </div>
