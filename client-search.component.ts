@@ -11,3 +11,14 @@ import { ClientDataService, Client } from '../client-data.service';
   standalone: true,
   imports: [CommonModule, FormsModule]
 })
+export class ClientSearchComponent {
+  searchQuery = '';
+  searchResults: Client[] = [];
+
+  constructor(private clientDataService: ClientDataService) { }
+
+  searchClients() {
+    this.searchResults = this.clientDataService.searchClients(this.searchQuery);
+  }
+}
+
